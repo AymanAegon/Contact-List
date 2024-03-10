@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import Table from 'react-bootstrap/Table';
 
 const ContactList = ({contacts, updateContact, updateCallback}) => {
   const onDelete = async (id) => {
@@ -16,7 +17,7 @@ const ContactList = ({contacts, updateContact, updateCallback}) => {
   }
   return <div>
     <h2>Contacts</h2>
-    <table>
+    <Table striped bordered hover>
       <thead>
         <tr>
           <th>First Name</th>
@@ -38,7 +39,7 @@ const ContactList = ({contacts, updateContact, updateCallback}) => {
           </tr>
         ))}
       </tbody>
-    </table>
+    </Table>
   </div>
 }
 

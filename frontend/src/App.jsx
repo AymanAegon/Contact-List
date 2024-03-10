@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
-import ContactList from './ContactList'
-import ContactForm from './ContactForm'
+import ContactList from './components/ContactList'
+import ModalForm from './components/ModalForm'
 import './App.css'
 
 function App() {
@@ -38,13 +38,12 @@ function App() {
   return <>
     <ContactList contacts={contacts} updateContact={openUpdateModal} updateCallback={onUpdate}/>
     <button onClick={openCreateModal}>Create Contact</button>
-    { isModalOpen && <div className='modal'>
-      <div className='modal-content'>
-        <span className='close' onClick={closeModal}>&times;</span>
-        <ContactForm oldContact={currentContact} updateCallback={onUpdate}/>
-      </div>
-    </div> }
-    
+    <ModalForm
+      oldcontact={currentContact}
+      show={isModalOpen}
+      onHide={() => closeModal()}
+      updateCallback={onUpdate}
+    />
   </>
 }
 
